@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Tokyo</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <!--Navbar-->
+    <nav>
+      <div class="logo">
+        <a href="index.html">The Weather</a>
+      </div>
+      <ul class="nav-links">
+        <li>
+          <a href="tokyo.html">Tokyo</a>
+        </li>
+        <li>
+          <a href="newyork.html">New York</a>
+        </li>
+        <li>
+          <a href="berlin.html">Berlin</a>
+        </li>
+        <li>
+          <a href="istanbul.html">Istanbul</a>
+        </li>
+      </ul>
+      <div class="burger">
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
+      </div>
+    </nav>
+
+    <!-- Section text (infromation) -->
+
+    <div class="tokyo-info">
+      <h1>Tokyo</h1>
+      <p>
+        Tokyo ligger i Tokyoprefekturen i Kantōregionen på östra Honshū och är
+        Japans huvudstad. Tokyoområdet, Stortokyo, är med sina 35,7 miljoner
+        invånare världens folkrikaste storstadsområde. Administrativt försvann
+        staden Tokyo redan 1943, men begreppet Tokyo används ofta om de 23
+        stadsdelskommunerna med sammanlagt cirka 9 miljoner invånare. Detta är
+        Japans huvudstad. Namnet Tokyo betyder bokstavligen östra huvudstaden. I
+        Tokyo finns Japans parlament och kejsarpalatset där den kejserliga
+        familjen bor. Staden är även hemvist för landets samtliga största
+        medieföretag med tidningar och TV-kanaler men även internationellt
+        aktiva japanska företag som Sony, Mitsubishi och Honda.
+      </p>
+    </div>
+
+    <!-- Chart section -->
+    <div class="chart">
+      <div>
+        <h1>Population Information</h1>
+      </div>
+      <canvas id="myChart"></canvas>
+    </div>
+    <!-- Chart JS script -->
+
+    <!-- Chart JS egen fil -->
+    <!-- <script src="chart.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="index.js"></script>
+  </body>
+</html>

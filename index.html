@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="style.css" rel="stylesheet" />
+    <title>The Weather</title>
+  </head>
+  <body>
+    <!--Navbar-->
+    <nav>
+      <div class="logo">
+        <a href="index.html">The Weather</a>
+      </div>
+      <ul class="nav-links">
+        <li>
+          <a href="tokyo.html">Tokyo</a>
+        </li>
+        <li>
+          <a href="newyork.html">New York</a>
+        </li>
+        <li>
+          <a href="berlin.html">Berlin</a>
+        </li>
+        <li>
+          <a href="istanbul.html">Istanbul</a>
+        </li>
+      </ul>
+      <div class="burger">
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
+      </div>
+    </nav>
+
+    <!-- Hero section Karusell -->
+    <section class="container">
+      <div class="carousel">
+        <div class="carousel__face"><span class="berlin">Berlin </span></div>
+        <div class="carousel__face"><span class="newyork">New York </span></div>
+        <div class="carousel__face"><span class="tokyo">Tokyo </span></div>
+        <div class="carousel__face">
+          <span class="istanbul">Istanbul </span>
+        </div>
+        <div class="carousel__face"><span class="berlin2">Berlin </span></div>
+        <div class="carousel__face">
+          <span class="istanbul2">Istanbul </span>
+        </div>
+        <div class="carousel__face"><span class="tokyo2">Tokyo </span></div>
+        <div class="carousel__face">
+          <span class="newyork2">New York </span>
+        </div>
+        <div class="carousel__face">
+          <span class="istanbul3">Istanbul </span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEARCH CONTAINER -->
+    <section class="container2">
+      <div class="searchField">
+        <form id="mainSearch" name="mainSearch" action="" method="GET">
+          <input
+            id="searchCity"
+            type="text"
+            name="searchCity"
+            placeholder="Search city (lowercase only)"
+          />
+          <input
+            id="send"
+            type="button"
+            value="Read more"
+            onclick="return myOnClickFn();"
+          />
+        </form>
+        <p id="greeting" style="color: red; display: none;">
+          Did you spell correctly? Try again
+        </p>
+      </div>
+    </section>
+
+    <!-----------  POP-UP SECTION  ---------->
+
+    <div class="popup">
+      <button id="close">&times;</button>
+      <h2>Välkommen</h2>
+      <p>Vi använder oss av Cookies</p>
+      <a class="samtycke">Jag samtycker</a>
+    </div>
+    <script src="index.js"></script>
+  </body>
+</html>

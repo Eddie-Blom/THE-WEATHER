@@ -1,0 +1,22 @@
+[
+    {
+		"id": "5347da70-fef3-4e8f-ba49-e8010edba878",
+		"name": "Tokyo",
+		"population": 37435191
+	},
+	{
+		"id": "4787e794-b3ac-4a63-bba0-03203f78e553",
+		"name": "New York",
+		"population": 8930002
+	},
+	{
+		"id": "4bc43d96-3e84-4695-b777-365dbed33f89",
+		"name": "Berlin",
+		"population": 3570750
+	},
+	{
+		"id": "ec6b9039-9afb-4632-81aa-ff95338a011a",
+		"name": "Istanbul",
+		"population": 15636243
+	}
+]
