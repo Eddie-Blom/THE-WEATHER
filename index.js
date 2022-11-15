@@ -176,11 +176,6 @@ function deleteButton() {
   let selectedBtn = document.querySelector('input[name="radioButton"]:checked');
   let iD = selectedBtn.value;
   console.log(selectedBtn.value);
-  if (selectedBtn.id != null) {
-    document.getElementById("content").innerHTML = "You picked a city";
-  } else {
-    document.getElementById("content").innerHTML = "You have not picked a city";
-  }
   console.log(iD);
   fetch(baseURL + iD, { method: "DELETE" })
     .then(function (response) {
@@ -218,7 +213,6 @@ fetch("chart.json")
         labels: labels,
         datasets: [
           {
-            label: "# of Votes",
             data: data,
             backgroundColor: [
               "rgb(255, 99, 132)",
@@ -298,21 +292,19 @@ function myOnClickFn() {
   return false;
 }
 
-/* -------------- POP-UP SECTION LAGT DETTA PÅ SEPARAT JS FIL------------- */
+/* -------------- POP-UP SECTION ------------- */
 window.addEventListener("load", function () {
-  setTimeout(function open(event) {
+  setTimeout(function open() {
     document.querySelector(".popup").style.display = "block";
   }, 1000);
 });
 
 document.querySelector("#close").addEventListener("click", function () {
-  // document.querySelector(".popup").style.display = "none";
   window.location.href = "error.html";
 });
 
 document.querySelector(".samtycke").addEventListener("click", function () {
   document.querySelector(".popup").style.display = "none";
-  document.querySelector(".container2").style.display = "block";
 });
 
 // ----------- Web Storage area -----
