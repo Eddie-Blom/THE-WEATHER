@@ -3,7 +3,7 @@
 // const options = {
 // 	method: 'GET',
 // 	headers: {
-// 		'X-RapidAPI-Key': '92fd76dc14msha1db3133922d088p132954jsnbb0bff518b9a',
+// 		'X-RapidAPI-Key': 'fcee3a5956msh52128b62fd0d0d7p141082jsndc11f4735d2d',
 // 		'X-RapidAPI-Host': 'visual-crossing-weather.p.rapidapi.com'
 // 	}
 // };
@@ -38,7 +38,7 @@
 // const options = {
 // 	method: 'GET',
 // 	headers: {
-// 		'X-RapidAPI-Key': '92fd76dc14msha1db3133922d088p132954jsnbb0bff518b9a',
+// 		'X-RapidAPI-Key': 'fcee3a5956msh52128b62fd0d0d7p141082jsndc11f4735d2d',
 // 		'X-RapidAPI-Host': 'visual-crossing-weather.p.rapidapi.com'
 // 	}
 // };
@@ -90,49 +90,42 @@
 
 // });
 
-// -----------   Form Section -----------
+// -----------   Form Section, fetching and showing APi data -----------
 
 const baseURL = "https://avancera.app/cities/";
+let tbody = document.getElementById("tBody");
 
 fetch(baseURL)
-  .then((response) => response.json())
+  .then((res) => res.json())
   .then((json) => {
     json.map((data) => {
-      tbody.append(td_fun(data.name, data.population, data.id));
+      console.log(data.id);
+      console.log(data.name);
+      console.log(data.population);
+      tbody.append(td_fun(data));
     });
-  })
-  .catch((error) => console.log(error));
+  });
 
-let tbody = document.getElementById("tbody");
-
-// Creates HTMLinputELement
-// let ids = `${id}`
-
-// console.log(ids)
-
-function td_fun(name, population, id) {
+function td_fun({ id, name, population }) {
+  // Väljer vad jag vill plocka ut
   let td = document.createElement("tr");
   td.innerHTML = `
-    <td class="px-6 py-4 whitespace-nowrap">
-    <input type="radio" name="rare" value="${id}">
-    <div class="flex items-center">
-    <div class="flex-shrink-0 h-10 w-10"></div>
-    </div>
-    </td>
-    <td class="px-6 py-4 whitespace-nowrap">
-    ${name}
-    </td>
-    <td class="px-6 py-4 whitespace-nowrap">
-    ${population}
-    </td>
-    `;
+    <input type="radio" name="radioButton" value="${id}">
+    <td>${name}</td>
+    <td>${population}</td>
+    <td><button name="delete" type="button" onclick="deleteButton()">
+    DELETE
+  </button></td>
+    `; // <td>${id}</td> denna har jag som reserv om man vill displaya id på DOM:en
   return td;
 }
 
-// --------SELECTED BUTTON-----------
+// POST PUT DELETE SECTION
+
+//POST
 function addButton() {
-  var namE = document.getElementById("name").value;
-  var poP = Number(document.getElementById("population").value);
+  let namE = document.getElementById("name").value;
+  let poP = Number(document.getElementById("population").value);
 
   fetch(baseURL, {
     method: "POST",
@@ -143,6 +136,34 @@ function addButton() {
     headers: { "Content-Type": "application/json" },
   }).then(function (response) {
     if (response.ok) {
+      document.getElementById("content").innerHTML = `
+      Stad med namnet: ${namE} & population på: ${poP}
+      är tillagd`;
+      return;
+    }
+    throw new Error("Request failed.");
+  });
+}
+
+// PUT
+function changeButton() {
+  let namE = document.getElementById("name").value;
+  let poP = Number(document.getElementById("population").value);
+  let selectedBtn = document.querySelector('input[name="radioButton"]:checked');
+  let iD = selectedBtn.value;
+
+  fetch(baseURL + iD, {
+    method: "PUT",
+    body: JSON.stringify({
+      id: iD,
+      name: namE,
+      population: poP,
+    }),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  }).then(function (result) {
+    if (result.ok) {
       document.getElementById("content").innerHTML = "POST was recorded";
       return;
     }
@@ -150,12 +171,13 @@ function addButton() {
   });
 }
 
+// DELETE
 function deleteButton() {
-  var selectedBtn = document.querySelector('input[name="rare"]:checked');
+  let selectedBtn = document.querySelector('input[name="radioButton"]:checked');
+  let iD = selectedBtn.value;
   console.log(selectedBtn.value);
   if (selectedBtn.id != null) {
     document.getElementById("content").innerHTML = "You picked a city";
-    var iD = selectedBtn.value;
   } else {
     document.getElementById("content").innerHTML = "You have not picked a city";
   }
@@ -171,30 +193,6 @@ function deleteButton() {
     .catch(function (error) {
       console.log(error);
     });
-}
-
-function changeButton() {
-  var namE = document.getElementById("name").value;
-  var poP = Number(document.getElementById("population").value);
-  var idenT = document.getElementById("id").value;
-
-  fetch(baseURL + idenT, {
-    method: "PUT",
-    body: JSON.stringify({
-      id: idenT,
-      name: namE,
-      population: poP,
-    }),
-    headers: {
-      "Content-Type": "application/json",
-    },
-  }).then(function (result) {
-    if (result.ok) {
-      document.getElementById("content").innerHTML = "POST was recorded";
-      return;
-    }
-    throw new Error("Request failed.");
-  });
 }
 
 // ---- CHART AREA ----

@@ -32,66 +32,45 @@
         <div class="line3"></div>
       </div>
     </nav>
-<!-- Form section -->
-<form class="containerForm">
-  <div class="t-container">
-    <h1 class="t-h1"> JSON SERVER</h1>
-    <table id="t-table" style="width:90%">
-      <thead class="t-head">
-        <tr>
-          <th class="t-th">Choose a city</th>
-          <th class="t-th">City</th>
-          <th class="t-th">Population</th>
-        </tr>
-      </thead>
-      <tbody class="bg-white divide-y divide-gray-200" id="tbody">
-        <tr>
-          <td class="px-6 py-4 whitespace-nowrap"><input type="radio" name="rare" value="" hidden>
-            <!-- <div class="flex items-center">
-              <div class="flex-shrink-0 h-10 w-10"></div>
-            </div> -->
-          </td>
-          <td class="px-6 py-4 whitespace-nowrap">
-          </td>
-          <td class="px-6 py-4 whitespace-nowrap">
-          </td>
-        </tr>
-      </tbody>
-   </table>
-  </div>
-  <h2> Add change city</h2>
-  <p>ID is only used for CHANGE and DELETE request</p>
-  <div class="inPut">
-    <div name="medium" id="mediumId">
-      <!-- <input name="rare" type="radio" value="get"> GET
-      <input name="rare" type="radio" value="put"> PUT
-      <input name="rare" type="radio" value="post"> POST
-      <input name="rare" type="radio" value="delete"> DELETE
-      <button id="btn">DONE</button> -->
-      <h3 id="content" style="color: rgb(138, 39, 39);"></h3>
-    </div>
-    <label>ID</label>
-  <input class="fname" type="text" id="id" placeholder="ID"/>
-  <label>NAME</label>
-  <input type="text" id="name"placeholder="NAME"/>
-  <label>POPULATION</label>
-  <input type="number" id="population" name="population" placeholder="POPULATION"/>
-</div>
-  <button name="post" type="button" onclick= "addButton()">ADD CITY</button>
-  <button name="put" type="button" onclick= "changeButton()">CHANGE CITY</button>
-  <button name="delete" type="button" onclick= "deleteButton()">DELETE</button>
-   <!-- <input name="post" type="submit" value="ADD CITY">
-   <input name="put" type="submit" value="CHANGE CITY">
-   <input name="delete" type="submit" value="DELETE"> -->
-   <br>
-   <button onclick="deleteItems()">Refresh form</button>
-   <br>
-   <br>
-   <span>Message</span>
-   <div>
-     <textarea rows="4" id="showRoom" value=""></textarea>
-   </div>
-</form>
+    <!-- Form section -->
+    <form class="containerForm">
+      <!-- TABLE -->
+      <div class="table">
+        <table class="tableBody">
+          <thead id="tHead">
+            <th>Välj</th>
+            <th>Stad</th>
+            <th>Population</th>
+          </thead>
+          <tbody id="tBody"></tbody>
+        </table>
+      </div>
+      <!-- POST PUT DELETE -->
+      <div class="inPut">
+        <h3>Add or change</h3>
+        <div name="medium" id="mediumId">
+          <h3 id="content" style="color: rgb(221, 22, 22);"></h3>
+        </div>
+        <!-- <input class="fname" type="text" id="id" placeholder="ID" /> -->
+        <input type="text" id="name" placeholder="NAME" />
+        <input
+          type="number"
+          id="population"
+          name="population"
+          placeholder="POPULATION"
+        />
+        <div class="fetch-btn">
+          <button id="add-btn" name="post" type="button" onclick="addButton()">
+            ADD
+          </button>
+          <button name="put" type="button" onclick="changeButton()">
+            CHANGE
+          </button>
+          <button onclick="deleteItems()">Refresh</button>
+        </div>
+      </div>
+    </form>
+
     <script src="index.js"></script>
   </body>
 </html>
