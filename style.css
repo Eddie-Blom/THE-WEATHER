@@ -650,3 +650,6 @@ body > div:nth-child(7) > footer > section > div.company > h3 {
   text-align: left;
   margin: 5% 10% 0% 10%;
 }
+.company {
+  padding-top: 2%;
+}
